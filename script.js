@@ -1,10 +1,22 @@
-var name_list = new Array()
+var nameList = new Array()
+var textDisplaying = false
 
 function onSubmit() {
-    var fname = document.getElementById("fname").value
-    var lname = document.getElementById("lname").value
-    document.getElementById("name_form").reset()
-    name_list.push(fname+" "+lname)
-    console.log(name_list[name_list.length-1])
+    var name = document.getElementById("name").value
+    document.getElementById("nameForm").reset()
+    nameList.push(name)
+    console.log(nameList[nameList.length-1])
 }
 
+function displayList() {
+    var text = document.createElement("P")
+    text.setAttribute("id", "displayedText")
+    text.innerHTML = "Magic"
+    if (textDisplaying == false) {
+        document.body.append(text)
+        textDisplaying = true
+    } else {
+        document.getElementById("displayedText").remove()
+        textDisplaying = false
+    }
+}
